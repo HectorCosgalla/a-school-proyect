@@ -1,12 +1,12 @@
 <template>
-  <q-page class="">
+  <q-page class="flex-center">
     <q-tabs v-model="tab" align="left" active-class="selected-folder" class="bg-amber-3" no-caps>
-      <q-tab class="folder" name="mails" label="Mails" />
-      <q-tab class="folder" name="alarms" label="Alarms" />
-      <q-tab class="folder" name="movies" label="Movies" />
+      <q-tab class="folder-button" name="mails" label="Mails" />
+      <q-tab class="folder-button" name="alarms" label="Alarms" />
+      <q-tab class="folder-button" name="movies" label="Movies" />
     </q-tabs>
-    <q-tab-panels v-model="tab" animated class="shadow-2 rounded-borders">
-      <q-tab-panel name="mails">
+    <q-tab-panels v-model="tab" animated class="shadow-2 rounded-borders folder-info">
+      <q-tab-panel class="" name="mails">
         <div class="text-h6">Mails</div>
         Lorem ipsum dolor sit amet consectetur adipisicing elit.
       </q-tab-panel>
@@ -31,7 +31,7 @@ const tab = ref('mails')
 </script>
 
 <style lang="scss">
-.folder {
+.folder-button {
   margin: $space-base * 0.5 $space-base * 0.5 0 $space-base * 0.5;
   border-radius: 20% 20% 0 0;
   box-shadow: $shadow-12;
@@ -40,5 +40,11 @@ const tab = ref('mails')
 }
 .selected-folder {
   background-color: $selected-folder;
+}
+.folder-info {
+  background-color: $selected-folder;
+  border-radius: 0;
+  box-shadow: none;
+  height: 100%;
 }
 </style>
