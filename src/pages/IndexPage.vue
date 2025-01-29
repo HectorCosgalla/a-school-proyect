@@ -26,13 +26,8 @@
 
 <script setup>
 import { ref } from 'vue'
-import { colors, setCssVar } from 'quasar'
 
 const tab = ref('mails')
-const { lighten } = colors
-
-const selectedFolderColor = '#ffc725'
-setCssVar('selected-folder', lighten(selectedFolderColor, -10))
 </script>
 
 <style lang="scss">
