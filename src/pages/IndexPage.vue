@@ -1,42 +1,38 @@
 <template>
   <q-page class="">
-    <q-card>
-      <q-tabs
-        v-model="tab"
-        align="left"
-        active-bg-color="yellow-8"
-        class="bg-yellow-7"
-        @click="selectedFolder()"
-        no-caps
-      >
-        <q-tab class="folder" name="mails" label="Mails" />
-        <q-tab class="folder" name="alarms" label="Alarms" />
-        <q-tab class="folder" name="movies" label="Movies" />
-      </q-tabs>
-      <q-tab-panels v-model="tab" animated class="shadow-2 rounded-borders">
-        <q-tab-panel name="mails">
-          <div class="text-h6">Mails</div>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        </q-tab-panel>
+    <q-tabs v-model="tab" align="left" active-class="selected-folder" class="bg-amber-3" no-caps>
+      <q-tab class="folder" name="mails" label="Mails" />
+      <q-tab class="folder" name="alarms" label="Alarms" />
+      <q-tab class="folder" name="movies" label="Movies" />
+    </q-tabs>
+    <q-tab-panels v-model="tab" animated class="shadow-2 rounded-borders">
+      <q-tab-panel name="mails">
+        <div class="text-h6">Mails</div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      </q-tab-panel>
 
-        <q-tab-panel name="alarms">
-          <div class="text-h6">Alarms</div>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        </q-tab-panel>
+      <q-tab-panel name="alarms">
+        <div class="text-h6">Alarms</div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      </q-tab-panel>
 
-        <q-tab-panel name="movies">
-          <div class="text-h6">Movies</div>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        </q-tab-panel>
-      </q-tab-panels>
-    </q-card>
+      <q-tab-panel name="movies">
+        <div class="text-h6">Movies</div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      </q-tab-panel>
+    </q-tab-panels>
   </q-page>
 </template>
 
 <script setup>
 import { ref } from 'vue'
+import { colors, setCssVar } from 'quasar'
 
 const tab = ref('mails')
+const { lighten } = colors
+
+const selectedFolderColor = '#ffc725'
+setCssVar('selected-folder', lighten(selectedFolderColor, -10))
 </script>
 
 <style lang="scss">
@@ -45,5 +41,9 @@ const tab = ref('mails')
   border-radius: 20% 20% 0 0;
   box-shadow: $shadow-12;
   padding: 0 $space-base * 3;
+  background-color: $folder;
+}
+.selected-folder {
+  background-color: $selected-folder;
 }
 </style>
